@@ -8,16 +8,16 @@ on:
 jobs:
   release_cv:
   name: "Ejecucion Informe LaTex"
-  runs-on: ubuntu-latest
+  runs-on: ubuntu-latest # Carga de la máquina virtual Linux
 
   steps:
   name: "Checkout master"
-  uses: actions/checkout@v1
+  uses: actions/checkout@v1 # Revisión de archivos en el repositorio
 
   name: "Compilación del informe"
   uses: xu-cheng/latex-action@master
   with:
-    root_file: Informes/Informe01.tex
+    root_file: Informes/Informe01.tex # Compilación .tex
 
   name: "Revisión del PDF"
   run: |

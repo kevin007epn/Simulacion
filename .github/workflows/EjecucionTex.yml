@@ -3,37 +3,37 @@ name: "Compilación del documento .tex de la carpeta Informes"
 on: 
   push:
     branches:
-      - main # Detecta cambios en LA RAMA BRAIN
+      - main # Detecta cambios en la rama main
 
 permissions:
   contents: write # Esto da al GITHUB_TOKEN permiso para crear releases, tags, etc
 
 jobs:
   release_cv:
-  name: "Ejecucion Informe LaTex"
-  runs-on: ubuntu-latest # Carga de la máquina virtual Linux
+    name: "Ejecucion Informe LaTex"
+    runs-on: ubuntu-latest # Carga de la máquina virtual Linux
 
-  steps:
-    - name: "Checkout del repositorio"
-      uses: actions/checkout@v1
+    steps:
+      - name: "Checkout del repositorio"
+        uses: actions/checkout@v1
 
-    - name: "Compilación del Informe"
-      uses: xu-cheng/latex-action@master
-      with: 
-        root_file: Informes/Informe01.tex
-
-    - name: "Revisión del PDF"
-      run: |
-        file Informe01.pdf | grep -q 'PDF'
-
-    - name: "Carga del PDF como release"
-      uses: marvinpinto/action-automatic-releases@latest
-      with: 
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: "latest"
-        prerelease: true
-        title: "Carga"
-        files: |
-          Informe01.pdf
+      - name: "Compilación del Informe"
+        uses: xu-cheng/latex-action@master
+        with: 
+          root_file: Informes/Informe01.tex
+  
+      - name: "Revisión del PDF"
+        run: |
+          file Informe01.pdf | grep -q 'PDF'
+  
+      - name: "Carga del PDF como release"
+        uses: marvinpinto/action-automatic-releases@latest
+        with: 
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Carga"
+          files: |
+            Informe01.pdf
 
 

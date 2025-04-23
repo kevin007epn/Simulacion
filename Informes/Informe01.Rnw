@@ -25,10 +25,21 @@ Azuay & Cuenca\\ \hline
 
 $$\lim_{x \rightarrow 2} 2x+3 = 7$$
 
+<<setup, incluse = FALSE>>=
+knitr::opts_chunk$set(highlight = FALSE, background = "#f1fdf1")
+@
+
 %estructura de un chunk
 <<chunk01>>=
 3 + 5 - 2
 rnorm(5, mean = 12, sd = 4)
 @
 
+A continuación nuestro segundo chunk
+<<chunk02, echo = FALSE>>=
+plot(sort(runif(10, min = 0, max = 10)), sort(rnorm(10, mean = 10, sd = 3)), 
+     ylab = "Ventas", type = "l", col = 3, xlab = "Día")
+@
+
 \end{document}
+

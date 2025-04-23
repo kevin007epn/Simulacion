@@ -3,7 +3,7 @@ name: "Compilación del documento .tex de la carpeta Informes"
 on: 
   push:
     branches:
-      - main # Detecta cambios en la rama main
+      - main # Detecta cambios en la rama main.
 
 permissions:
   contents: write # Esto da al GITHUB_TOKEN permiso para crear releases, tags, etc
